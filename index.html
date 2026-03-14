@@ -143,7 +143,8 @@ hr.divider{border:none;border-top:1px solid var(--rule);}
 .locked-tag{font-family:var(--mono);font-size:9px;color:var(--muted);border:1px solid var(--rule);padding:3px 8px;border-radius:2px;}
 .preview-note{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);}
 .preview-full-cta{margin-top:28px;text-align:center;}
-.preview-full-btn{display:inline-block;background:var(--green);color:var(--bg);font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:20px 44px;border-radius:3px;transition:background .2s,transform .15s,box-shadow .2s;}
+.preview-full-btn{display:inline-block;background:var(--green);color:var(--bg);font-family:var(--mono);font-size:17px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:24px 52px;border-radius:3px;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px rgba(29,184,106,0.25);cursor:pointer;}
+.preview-full-btn:hover{background:#22D478;transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,184,106,0.35);}
 .preview-full-btn:hover{background:#22D478;transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,184,106,0.3);}
 .preview-full-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:14px;}
 
@@ -235,17 +236,17 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:36px 40px;d
 .custom-timeline{display:flex;flex-direction:column;gap:0;}
 .ct-item{display:grid;grid-template-columns:40px 1fr;gap:16px;position:relative;}
 .ct-item:not(:last-child) .ct-line{position:absolute;left:19px;top:40px;bottom:-20px;width:1px;background:linear-gradient(var(--rule),var(--rule));z-index:0;}
-.ct-dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--rule);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;position:relative;transition:all .3s;}
+.ct-dot{width:52px;height:52px;border-radius:50%;border:2px solid var(--rule);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;position:relative;transition:all .3s;}
 .ct-dot.active{border-color:var(--green);background:var(--green-dim);box-shadow:0 0 16px rgba(29,184,106,0.3);}
 .ct-dot.gold{border-color:var(--gold);background:var(--gold-dim);box-shadow:0 0 16px rgba(200,150,46,0.3);}
 .ct-dot.teal{border-color:var(--teal);background:var(--teal-dim);box-shadow:0 0 16px rgba(26,191,191,0.3);}
-.ct-dot-n{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.ct-dot-n{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted);}
 .ct-dot.active .ct-dot-n{color:var(--green);}
 .ct-dot.gold .ct-dot-n{color:var(--gold);}
 .ct-dot.teal .ct-dot-n{color:var(--teal);}
 .ct-body{padding:8px 0 32px;}
-.ct-week{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
-.ct-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.3;}
+.ct-week{font-family:var(--mono);font-size:13px;letter-spacing:2px;color:var(--muted-lt);text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+.ct-title{font-size:19px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.3;}
 .ct-text{font-size:14px;color:var(--muted-lt);line-height:1.7;}
 .ct-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
 .ct-pill{font-family:var(--mono);font-size:9px;letter-spacing:1px;padding:4px 10px;border-radius:2px;border:1px solid;}
@@ -325,6 +326,8 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:36px 40px;d
 .modal-score-hero{background:var(--green-dim);border:1px solid rgba(29,184,106,0.3);border-radius:4px;padding:16px;text-align:center;margin-bottom:16px;}
 .msh-num{font-family:var(--serif);font-size:48px;color:var(--green);line-height:1;margin-bottom:4px;}
 .msh-label{font-size:13px;color:var(--green-lt);}
+
+.preview-hidden{display:none !important;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -519,7 +522,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:36px 40px;d
   </div>
 
   <!-- FRIDAY -->
-  <div class="preview-window fade-in" id="preview-friday" style="display:none;">
+  <div class="preview-window fade-in" id="preview-friday">
     <div class="preview-bar">
       <div class="preview-dot" style="background:#E05252;"></div>
       <div class="preview-dot" style="background:#E07A30;"></div>
@@ -567,7 +570,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:36px 40px;d
   <!-- EMAIL CTA MOCKUP — visual only, no link -->
   <div class="preview-full-cta fade-in">
     <p style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:16px;letter-spacing:1px;">↓ This button appears at the bottom of every email — it opens your full report</p>
-    <div class="preview-full-btn" id="preview-cta-btn" style="cursor:default;opacity:0.85;">View Your Full Monday Report →</div>
+    <div class="preview-full-btn" id="preview-cta-btn">View Your Full Monday Report →</div>
     <p class="preview-full-note">Your actual report button links to your private HTML report · No login required</p>
   </div>
 </section>
@@ -958,89 +961,104 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:36px 40px;d
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// COUNTER
-let triggered = false;
-function runCounters() {
-  if (triggered) return; triggered = true;
-  document.querySelectorAll('.counter').forEach(el => {
-    const target = parseInt(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    let n = 0, step = target / (1800 / 16);
-    const t = setInterval(() => {
-      n += step;
-      if (n >= target) { el.textContent = target + suffix; clearInterval(t); return; }
-      el.textContent = Math.floor(n) + suffix;
-    }, 16);
-  });
-}
+document.addEventListener('DOMContentLoaded', function() {
 
-// SCROLL FADE + COUNTER TRIGGER
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      if (e.target.closest('.stats-strip')) runCounters();
+  // COUNTER
+  let triggered = false;
+  function runCounters() {
+    if (triggered) return; triggered = true;
+    document.querySelectorAll('.counter').forEach(function(el) {
+      var target = parseInt(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      var n = 0, step = target / (1800 / 16);
+      var t = setInterval(function() {
+        n += step;
+        if (n >= target) { el.textContent = target + suffix; clearInterval(t); return; }
+        el.textContent = Math.floor(n) + suffix;
+      }, 16);
+    });
+  }
+
+  // SCROLL FADE + COUNTER TRIGGER
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.closest('.stats-strip')) runCounters();
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+  window.addEventListener('load', function() {
+    var s = document.querySelector('.stats-strip');
+    if (s && s.getBoundingClientRect().top < window.innerHeight) runCounters();
+  });
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    item.querySelector('.faq-q').addEventListener('click', function() {
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!open) item.classList.add('open');
+    });
+  });
+
+  // MODAL SYSTEM
+  function openModal(id) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Expose closeModal globally for inline onclick handlers on modal backdrop/close buttons
+  window.closeModal = closeModal;
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal('modal-monday');
+      closeModal('modal-friday');
     }
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-window.addEventListener('load', () => {
-  const s = document.querySelector('.stats-strip');
-  if (s && s.getBoundingClientRect().top < window.innerHeight) runCounters();
-});
 
-// FAQ
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    const open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!open) item.classList.add('open');
-  });
-});
+  // PREVIEW TABS — class-based show/hide, immune to inline style conflicts
+  var monday = document.getElementById('preview-monday');
+  var friday = document.getElementById('preview-friday');
+  var btn = document.getElementById('preview-cta-btn');
 
-// MODAL SYSTEM
-function openModal(id) {
-  const m = document.getElementById(id);
-  if (!m) return;
-  m.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(id) {
-  const m = document.getElementById(id);
-  if (!m) return;
-  m.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    ['modal-monday','modal-friday'].forEach(closeModal);
-  }
-});
+  // Ensure correct initial state via class, not inline style
+  if (monday) monday.classList.remove('preview-hidden');
+  if (friday) friday.classList.add('preview-hidden');
 
-// PREVIEW CTA BUTTON — opens correct modal based on active tab
-const previewBtn = document.getElementById('preview-cta-btn');
-if (previewBtn) {
-  previewBtn.style.cursor = 'pointer';
-  previewBtn.style.opacity = '1';
-  previewBtn.addEventListener('click', function() {
-    const activeTab = document.querySelector('.preview-tab.active');
-    const tabId = activeTab ? activeTab.dataset.tab : 'monday';
-    openModal('modal-' + tabId);
-  });
-}
-
-  const tabs = document.querySelectorAll('.preview-tab');
-  tabs.forEach(tab => {
+  document.querySelectorAll('.preview-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
-      const id = this.dataset.tab;
-      tabs.forEach(t => t.classList.remove('active'));
+      var id = this.dataset.tab;
+      document.querySelectorAll('.preview-tab').forEach(function(t) { t.classList.remove('active'); });
       this.classList.add('active');
-      document.getElementById('preview-monday').style.display = id === 'monday' ? '' : 'none';
-      document.getElementById('preview-friday').style.display = id === 'friday' ? '' : 'none';
-      const btn = document.getElementById('preview-cta-btn');
+      if (monday) monday.classList.toggle('preview-hidden', id !== 'monday');
+      if (friday) friday.classList.toggle('preview-hidden', id !== 'friday');
       if (btn) btn.textContent = id === 'monday'
         ? 'View Your Full Monday Report →'
         : 'View Your Full Friday Report →';
     });
   });
+
+  // PREVIEW CTA BUTTON — opens correct modal based on active tab
+  if (btn) {
+    btn.style.cursor = 'pointer';
+    btn.style.opacity = '1';
+    btn.addEventListener('click', function() {
+      var activeTab = document.querySelector('.preview-tab.active');
+      var tabId = activeTab ? activeTab.dataset.tab : 'monday';
+      openModal('modal-' + tabId);
+    });
+  }
+
 });
+</script>
